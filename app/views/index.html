@@ -1,0 +1,47 @@
+{{ block "index" . }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ .Title }}</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/styles.css">
+	<script src="https://unpkg.com/htmx.org@2.0.3/dist/htmx.js" integrity="sha384-BBDmZzVt6vjz5YbQqZPtFZW82o8QotoM7RUp5xOxV3nSJ8u2pSdtzFAbGKzTlKtg" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="dark h-full">
+    <main
+        class="w-screen h-screen dark:bg-zinc-900 dark:text-zinc-50 flex place-content-center flex-col items-center"
+    >
+
+    <h1 class="text-6xl font-mono">Buttons: </h1>
+        <section id="buttons"
+                 class=" flex "
+        >
+            <div
+                    x-data="{hover: false}"
+                    id="button1"
+                    class="rounded-3xl dark:bg-zinc-800 h-50 w-50 m-20 flex items-center justify-center transition-all "
+                    hx-get="/button1"
+                    hx-target="#icon"
+                    @mouseenter="hover=true"
+                    @mouseleave="hover=false"
+                    :class="hover ? ' border-2 ' : 'border-0 dark:border-zinc-400 '"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                    id="icon"
+                    class=" transition-all duration-50"
+                    :class="hover ? ' size-26 ' : ' size-20 '"
+                >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m9 9 10.5-3m0 6.553v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 1 1-.99-3.467l2.31-.66a2.25 2.25 0 0 0 1.632-2.163Zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 0 1-.99-3.467l2.31-.66A2.25 2.25 0 0 0 9 15.553Z" />
+                </svg>
+
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>
+{{ end }}

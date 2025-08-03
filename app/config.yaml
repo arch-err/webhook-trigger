@@ -1,0 +1,11 @@
+settings:
+  style:
+    background: #000
+    foreground: #0C0
+widgets:
+  - type: button
+    name: "testbutton"
+    webhook:
+      method: GET
+      address: "https://localhost:4444/bab54eb9-0324-4601-b36f-996a723a8bbb"
+      insecure: true
